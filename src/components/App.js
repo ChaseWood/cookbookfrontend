@@ -1,11 +1,17 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import Display from './Display';
+import Form from './Form';
 
 export const App = () => {
 	const url = 'http://localhost:4500';
 
 	const [authors, setAuthors] = React.useState([]);
+
+	const emptyAuthor = {
+		firstName: '',
+		lastName: '',
+	};
 
 	const getAuthors = () => {
 		fetch(url + '/api/authors')
@@ -16,6 +22,18 @@ export const App = () => {
 	};
 
 	React.useEffect(() => getAuthors(), []);
+
+	const handleCreate = (newAuthor) => {
+		fetch(url + '/api/authors', {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(newAuthor),
+		}).then(() => {
+			getAuthors();
+		});
+	};
 
 	return (
 		<>
