@@ -10,14 +10,14 @@ const Display = (props) => {
 					<h3>{author.lastName}</h3>
 					<button
 						onClick={() => {
-							props.selectDog(dog);
+							props.selectAuthor(author);
 							props.history.push('/edit');
 						}}>
 						Edit
 					</button>
 					<button
 						onClick={() => {
-							props.deleteDog(dog);
+							props.deleteAuthor(author);
 						}}>
 						Delete
 					</button>
