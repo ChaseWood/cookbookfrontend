@@ -17,14 +17,14 @@ const Form = (props) => {
 		<form onSubmit={handleSubmit}>
 			<input
 				type='text'
-				name='first name'
-				value={formData.firstName}
+				name='firstName'
+				value={formData.name}
 				onChange={handleChange}
 			/>
 			<input
 				type='text'
-				name='last name'
-				value={formData.lastName}
+				name='lastName'
+				value={formData.age}
 				onChange={handleChange}
 			/>
 

@@ -38,10 +38,25 @@ export const App = () => {
 	return (
 		<>
 			<h1>Hello World</h1>
+			<Link to='/create'>
+				<button>Add Author</button>
+			</Link>
 			<Route
 				exact
 				path='/'
 				render={(rp) => <Display {...rp} authors={authors} />}
+			/>
+			<Route
+				exact
+				path='/create'
+				render={(rp) => (
+					<Form
+						{...rp}
+						label='create'
+						author={emptyAuthor}
+						handleSubmit={handleCreate}
+					/>
+				)}
 			/>
 		</>
 	);
